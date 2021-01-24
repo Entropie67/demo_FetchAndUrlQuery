@@ -35,26 +35,38 @@ const getInfo = async() =>{
     addPerso(data)
 }
 
-
 boutton2.addEventListener("click", function () {
     getInfo();
     });
 
-
 // ***************************************************************************************************************
 //Exemple 3:
 // Avec gestion des erreurs
-/*
-const getInfo = async function(){
-    let response = await fetch('https://www.superheroapi.com/api.php/3527859777262512/346');
-    let data = await response.json();
-    addPerso(data)
+
+const getInfoBis = async function(){
+    try {
+        let response = await fetch('https://www.superheroapi.com/api.php/3527859777262512/346');
+        if (response.ok) {
+            try {
+                let data = await response.json();
+                addPerso(data)
+            }catch (e) {
+                console.log(e)
+            }
+
+        } else {
+            console.error('Retour du serveur :', response.status);
+        }
+    } catch (e){
+        console.log(e)
+    }
+
 };
 
-let boutton2 = document.getElementById("boutton2");
-boutton2.addEventListener("click", function () {
-    getInfo();
+let boutton3 = document.getElementById("boutton3");
+boutton3.addEventListener("click", function () {
+    getInfoBis();
 });
 
-*/
+
 
