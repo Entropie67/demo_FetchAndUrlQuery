@@ -12,9 +12,10 @@ function addPerso(json){
     console.log("Le première boutton bien d'être cliqué");
     console.log(json);
     let reponse = document.createElement("div");
-    reponse.innerHTML = "<p>" + json.name + "</p>";
+    reponse.innerHTML = "<p> Nom : " + json.name + " sont intelligence est de :"+ json.powerstats.intelligence + "</p>";
     document.body.insertBefore(reponse, boutton1.nextSibling);
     console.log(json.name);
+
 }
 
 boutton1.addEventListener("click", function () {
